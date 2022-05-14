@@ -10,14 +10,14 @@ def check_screen():
             }
     except:
         pass
-    try:
-        if pyautogui.locateOnScreen("./resources/screens/battling.png", confidence=0.9):
-            return {
-                "name": "battling",
-                "data": {}
-            }
-    except:
-        pass
+    # try:
+    #     if pyautogui.locateOnScreen("./resources/screens/battling.png", confidence=0.9):
+    #         return {
+    #             "name": "battling",
+    #             "data": {}
+    #         }
+    # except:
+    #     pass
     try:
         if pyautogui.locateOnScreen("./resources/screens/battle.png", confidence=0.9):
             return {
