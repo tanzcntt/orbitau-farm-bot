@@ -83,3 +83,6 @@ while True:
 
 như trên mình cho bot chạy solo 3 map với config hero ở trên
 
+# Bot hiện chỉ chạy được 1 account một máy cho cơ chế chiếm chuột và màn hình, a e làm muốn chạy nhiều account có thể sử dụng vmware or virtual box
+
+# Code này mình mới test được trên Ubuntu, trên window a e tự quẩy
