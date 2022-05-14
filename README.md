@@ -15,7 +15,7 @@ Thay các button tương ứng theo tài khoản game, theo kích thước màn 
 
 Chụp hình tất cả các hero của bạn
 
- Sửa config các ải sẽ farm theo mẫu sau
+ Sửa config các ải trong func/action.py sẽ farm theo mẫu sau
 
  ```python
 
