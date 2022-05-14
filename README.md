@@ -37,4 +37,49 @@ Chụp hình tất cả các hero của bạn
 ```
 Như cấu hình trên mình có 2 hero farm solo ở map 3.1 normal, 3 hero farm solo ở map 3.1 ez, 5 hero farm solo ở 6.1 normal
 
-                 "./resources/heroes/moc52.png",cài 
+# Sửa lại file main chạy bao nhiều ải tuỳ vào account của bạn
+```python
+while True:
+        screen = check_screen()
+        if screen['name'] == 'home':
+            status = start_farm(stage=6, lvl="normal")
+            if not status:
+                pos1 = pyautogui.locateCenterOnScreen("./resources/buttons/x-btn.png", confidence=0.9)
+                pyautogui.click(x=pos1.x, y=pos1.y)
+                time.sleep(1)
+                break
+        print(screen)
+        # pos1 = pyautogui.locateCenterOnScreen("./resources/buttons/back-button.png", confidence=0.9)
+        # pyautogui.click(x=pos1.x, y=pos1.y)
+        time.sleep(1)
+
+    while True:
+        screen = check_screen()
+        if screen['name'] == 'home':
+            status = start_farm(stage=3, lvl="normal")
+            if not status:
+                pos1 = pyautogui.locateCenterOnScreen("./resources/buttons/x-btn.png", confidence=0.9)
+                pyautogui.click(x=pos1.x, y=pos1.y)
+                time.sleep(1)
+                break
+        print(screen)
+        # pos1 = pyautogui.locateCenterOnScreen("./resources/buttons/back-button.png", confidence=0.9)
+        # pyautogui.click(x=pos1.x, y=pos1.y)
+        time.sleep(1)
+    while True:
+        screen = check_screen()
+        if screen['name'] == 'home':
+            status = start_farm(stage=3, lvl="easy")
+            if not status:
+                pos1 = pyautogui.locateCenterOnScreen("./resources/buttons/x-btn.png", confidence=0.9)
+                pyautogui.click(x=pos1.x, y=pos1.y)
+                time.sleep(1)
+                break
+        print(screen)
+        # pos1 = pyautogui.locateCenterOnScreen("./resources/buttons/back-button.png", confidence=0.9)
+        # pyautogui.click(x=pos1.x, y=pos1.y)
+        time.sleep(1)
+```
+
+như trên mình cho bot chạy solo 3 map với config hero ở trên
+
