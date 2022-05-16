@@ -14,7 +14,7 @@ from config import settings
 def run_bot(name):
     # Use a breakpoint in the code line below to debug your script.
     while True:
-        reload_and_log()
+        reload_and_login()
         end_idle_farm()
         time.sleep(10)
         while True:
