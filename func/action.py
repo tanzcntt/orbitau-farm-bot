@@ -3,6 +3,7 @@ import time
 import pyautogui
 
 from func.func import check_screen
+from config import settings
 
 config_stage = {
     "3-normal": ["./resources/heroes/kim.png",
@@ -13,6 +14,7 @@ config_stage = {
                "./resources/heroes/thuy3.png",
                ],
     "6-normal": ["./resources/heroes/tho5.png",
+                 "./resources/heroes/kim5.png",
                  "./resources/heroes/thuy5.png",
                  "./resources/heroes/moc5.png",
                  "./resources/heroes/moc51.png",
@@ -87,4 +89,86 @@ def start_farm(stage=3, lvl="normal"):
     pos1 = pyautogui.locateCenterOnScreen("./resources/buttons/home-btn.png", confidence=0.9)
     pyautogui.click(x=pos1.x, y=pos1.y)
     time.sleep(1)
+    return True
+
+
+def reload_and_login():
+    print("Start login")
+    pos1 = pyautogui.locateCenterOnScreen("./resources/buttons/reload-btn.png", confidence=0.9)
+    pyautogui.click(x=pos1.x, y=pos1.y)
+    time.sleep(20)
+    pos1 = pyautogui.locateCenterOnScreen("./resources/buttons/login-input.png", confidence=0.9)
+    pyautogui.click(x=pos1.x, y=pos1.y)
+    pyautogui.write(settings['password'])
+    pos1 = pyautogui.locateCenterOnScreen("./resources/buttons/login-btn.png", confidence=0.9)
+    pyautogui.click(x=pos1.x, y=pos1.y)
+    while True:
+        screen = check_screen()
+        print(screen)
+        if screen['name'] == 'home':
+            break
+    print("Login success")
+    return True
+
+
+def start_idle_farm():
+    print("Start idle")
+    pos1 = pyautogui.locateCenterOnScreen("./resources/buttons/idle-btn.png", confidence=0.9)
+    pyautogui.click(x=pos1.x, y=pos1.y)
+    time.sleep(2)
+
+    pos1 = pyautogui.locateCenterOnScreen("./resources/buttons/add-btn.png", confidence=0.9)
+    pyautogui.click(x=pos1.x, y=pos1.y)
+
+    pos1 = pyautogui.locateCenterOnScreen("./resources/idle-heroes/h1.png", confidence=0.9)
+    pyautogui.click(x=pos1.x, y=pos1.y)
+
+    pos1 = pyautogui.locateCenterOnScreen("./resources/idle-heroes/h2.png", confidence=0.9)
+    pyautogui.click(x=pos1.x, y=pos1.y)
+
+    pos1 = pyautogui.locateCenterOnScreen("./resources/idle-heroes/h3.png", confidence=0.9)
+    pyautogui.click(x=pos1.x, y=pos1.y)
+
+    pos1 = pyautogui.locateCenterOnScreen("./resources/idle-heroes/h4.png", confidence=0.9)
+    pyautogui.click(x=pos1.x, y=pos1.y)
+
+    pos1 = pyautogui.locateCenterOnScreen("./resources/idle-heroes/h5.png", confidence=0.9)
+    pyautogui.click(x=pos1.x, y=pos1.y)
+
+    pos1 = pyautogui.locateCenterOnScreen("./resources/buttons/confirm-btn.png", confidence=0.9)
+    pyautogui.click(x=pos1.x, y=pos1.y)
+
+    pos1 = pyautogui.locateCenterOnScreen("./resources/buttons/back-button.png", confidence=0.9)
+    pyautogui.click(x=pos1.x, y=pos1.y)
+    while True:
+        screen = check_screen()
+        print(screen)
+        if screen['name'] == 'home':
+            break
+    print("End idle")
+    return True
+
+
+def end_idle_farm():
+    pos1 = pyautogui.locateCenterOnScreen("./resources/buttons/idle-btn.png", confidence=0.9)
+    pyautogui.click(x=pos1.x, y=pos1.y)
+    time.sleep(2)
+    pos1 = pyautogui.locateCenterOnScreen("./resources/screens/idle.png", confidence=0.9)
+    status = True
+    if pos1 is None:
+        print("Idle can not claim")
+    else:
+        print("Idle can claim")
+        pos1 = pyautogui.locateCenterOnScreen("./resources/buttons/claim-btn.png", confidence=0.9)
+        pyautogui.click(x=pos1.x, y=pos1.y)
+        time.sleep(1)
+        pos1 = pyautogui.locateCenterOnScreen("./resources/buttons/claim-btn.png", confidence=0.9)
+        pyautogui.click(x=pos1.x, y=pos1.y)
+    pos1 = pyautogui.locateCenterOnScreen("./resources/buttons/back-button.png", confidence=0.9)
+    pyautogui.click(x=pos1.x, y=pos1.y)
+    while True:
+        screen = check_screen()
+        print(screen)
+        if screen['name'] == 'home':
+            break
     return True
