@@ -15,6 +15,7 @@ config_stage = {
                ],
     "6-normal": ["./resources/heroes/tho5.png",
                  "./resources/heroes/kim5.png",
+                 "./resources/heroes/thuy6.png",
                  "./resources/heroes/thuy5.png",
                  "./resources/heroes/moc5.png",
                  "./resources/heroes/moc51.png",
@@ -72,12 +73,10 @@ def start_farm(stage=3, lvl="normal"):
     time.sleep(1)
     pos1 = pyautogui.locateCenterOnScreen("./resources/buttons/clear.png", confidence=0.9)
     pyautogui.click(x=pos1.x, y=pos1.y)
-    time.sleep(1)
     pos1 = find_heroes(stage=stage, lvl=lvl)
     if not pos1:
         return False
     pyautogui.click(x=pos1.x, y=pos1.y)
-    time.sleep(1)
     pos1 = pyautogui.locateCenterOnScreen("./resources/buttons/battle-btn2.png", confidence=0.9)
     pyautogui.click(x=pos1.x, y=pos1.y)
     while True:
@@ -88,7 +87,6 @@ def start_farm(stage=3, lvl="normal"):
 
     pos1 = pyautogui.locateCenterOnScreen("./resources/buttons/home-btn.png", confidence=0.9)
     pyautogui.click(x=pos1.x, y=pos1.y)
-    time.sleep(1)
     return True
 
 
@@ -118,22 +116,23 @@ def start_idle_farm():
     time.sleep(2)
 
     pos1 = pyautogui.locateCenterOnScreen("./resources/buttons/add-btn.png", confidence=0.9)
+    if pos1 is None:
+        return False
     pyautogui.click(x=pos1.x, y=pos1.y)
 
-    pos1 = pyautogui.locateCenterOnScreen("./resources/idle-heroes/h1.png", confidence=0.9)
-    pyautogui.click(x=pos1.x, y=pos1.y)
+    x = 1766
+    y = 430
 
-    pos1 = pyautogui.locateCenterOnScreen("./resources/idle-heroes/h2.png", confidence=0.9)
-    pyautogui.click(x=pos1.x, y=pos1.y)
-
-    pos1 = pyautogui.locateCenterOnScreen("./resources/idle-heroes/h3.png", confidence=0.9)
-    pyautogui.click(x=pos1.x, y=pos1.y)
-
-    pos1 = pyautogui.locateCenterOnScreen("./resources/idle-heroes/h4.png", confidence=0.9)
-    pyautogui.click(x=pos1.x, y=pos1.y)
-
-    pos1 = pyautogui.locateCenterOnScreen("./resources/idle-heroes/h5.png", confidence=0.9)
-    pyautogui.click(x=pos1.x, y=pos1.y)
+    pyautogui.click(x=x, y=y)
+    time.sleep(1)
+    pyautogui.click(x=x+105*1, y=y)
+    time.sleep(1)
+    pyautogui.click(x=x+105*2, y=y)
+    time.sleep(1)
+    pyautogui.click(x=x+105*3, y=y)
+    time.sleep(1)
+    pyautogui.click(x=x, y=y+100)
+    time.sleep(10)
 
     pos1 = pyautogui.locateCenterOnScreen("./resources/buttons/confirm-btn.png", confidence=0.9)
     pyautogui.click(x=pos1.x, y=pos1.y)
@@ -162,8 +161,9 @@ def end_idle_farm():
         pos1 = pyautogui.locateCenterOnScreen("./resources/buttons/claim-btn.png", confidence=0.9)
         pyautogui.click(x=pos1.x, y=pos1.y)
         time.sleep(1)
-        pos1 = pyautogui.locateCenterOnScreen("./resources/buttons/claim-btn.png", confidence=0.9)
+        pos1 = pyautogui.locateCenterOnScreen("./resources/buttons/ok-btn.png", confidence=0.9)
         pyautogui.click(x=pos1.x, y=pos1.y)
+    time.sleep(1)
     pos1 = pyautogui.locateCenterOnScreen("./resources/buttons/back-button.png", confidence=0.9)
     pyautogui.click(x=pos1.x, y=pos1.y)
     while True:
