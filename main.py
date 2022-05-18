@@ -34,6 +34,20 @@ def run_bot(name):
         while True:
             screen = check_screen()
             if screen['name'] == 'home':
+                status = start_farm(stage=5, lvl="normal")
+                if not status:
+                    pos1 = pyautogui.locateCenterOnScreen("./resources/buttons/x-btn.png", confidence=0.9)
+                    pyautogui.click(x=pos1.x, y=pos1.y)
+                    time.sleep(1)
+                    break
+            print(screen)
+            # pos1 = pyautogui.locateCenterOnScreen("./resources/buttons/back-button.png", confidence=0.9)
+            # pyautogui.click(x=pos1.x, y=pos1.y)
+            time.sleep(1)
+
+        while True:
+            screen = check_screen()
+            if screen['name'] == 'home':
                 status = start_farm(stage=3, lvl="normal")
                 if not status:
                     pos1 = pyautogui.locateCenterOnScreen("./resources/buttons/x-btn.png", confidence=0.9)

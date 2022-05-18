@@ -17,6 +17,8 @@ config_stage = {
                  "./resources/heroes/kim5.png",
                  "./resources/heroes/thuy6.png",
                  "./resources/heroes/thuy5.png",
+                 ],
+    "5-normal": [
                  "./resources/heroes/moc5.png",
                  "./resources/heroes/moc51.png",
                  "./resources/heroes/moc52.png",
