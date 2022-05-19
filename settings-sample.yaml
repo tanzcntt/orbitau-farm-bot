@@ -1,1 +1,8 @@
 password: 123456
+start_idle_x : 1766
+start_idle_y : 430
+region :
+  left : 1280
+  top : 0
+  width : 1280
+  height : 1080

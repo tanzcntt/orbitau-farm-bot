@@ -44,12 +44,12 @@ while True:
         if screen['name'] == 'home':
             status = start_farm(stage=6, lvl="normal")
             if not status:
-                pos1 = pyautogui.locateCenterOnScreen("./resources/buttons/x-btn.png", confidence=0.9)
+                pos1 = pyautogui.locateCenterOnScreen("./resources/buttons/x-btn.png", region=(settings['region']['left'], settings['region']['top'], settings['region']['width'], settings['region']['height']), confidence=0.9)
                 pyautogui.click(x=pos1.x, y=pos1.y)
                 time.sleep(1)
                 break
         print(screen)
-        # pos1 = pyautogui.locateCenterOnScreen("./resources/buttons/back-button.png", confidence=0.9)
+        # pos1 = pyautogui.locateCenterOnScreen("./resources/buttons/back-button.png", region=(settings['region']['left'], settings['region']['top'], settings['region']['width'], settings['region']['height']), confidence=0.9)
         # pyautogui.click(x=pos1.x, y=pos1.y)
         time.sleep(1)
 
@@ -58,12 +58,12 @@ while True:
         if screen['name'] == 'home':
             status = start_farm(stage=3, lvl="normal")
             if not status:
-                pos1 = pyautogui.locateCenterOnScreen("./resources/buttons/x-btn.png", confidence=0.9)
+                pos1 = pyautogui.locateCenterOnScreen("./resources/buttons/x-btn.png", region=(settings['region']['left'], settings['region']['top'], settings['region']['width'], settings['region']['height']), confidence=0.9)
                 pyautogui.click(x=pos1.x, y=pos1.y)
                 time.sleep(1)
                 break
         print(screen)
-        # pos1 = pyautogui.locateCenterOnScreen("./resources/buttons/back-button.png", confidence=0.9)
+        # pos1 = pyautogui.locateCenterOnScreen("./resources/buttons/back-button.png", region=(settings['region']['left'], settings['region']['top'], settings['region']['width'], settings['region']['height']), confidence=0.9)
         # pyautogui.click(x=pos1.x, y=pos1.y)
         time.sleep(1)
     while True:
@@ -71,12 +71,12 @@ while True:
         if screen['name'] == 'home':
             status = start_farm(stage=3, lvl="easy")
             if not status:
-                pos1 = pyautogui.locateCenterOnScreen("./resources/buttons/x-btn.png", confidence=0.9)
+                pos1 = pyautogui.locateCenterOnScreen("./resources/buttons/x-btn.png", region=(settings['region']['left'], settings['region']['top'], settings['region']['width'], settings['region']['height']), confidence=0.9)
                 pyautogui.click(x=pos1.x, y=pos1.y)
                 time.sleep(1)
                 break
         print(screen)
-        # pos1 = pyautogui.locateCenterOnScreen("./resources/buttons/back-button.png", confidence=0.9)
+        # pos1 = pyautogui.locateCenterOnScreen("./resources/buttons/back-button.png", region=(settings['region']['left'], settings['region']['top'], settings['region']['width'], settings['region']['height']), confidence=0.9)
         # pyautogui.click(x=pos1.x, y=pos1.y)
         time.sleep(1)
 ```
