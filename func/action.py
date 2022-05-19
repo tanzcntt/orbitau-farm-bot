@@ -32,16 +32,16 @@ def go_to_stage(stage=3, lvl="normal"):
     if screen['data']['lvl'] != lvl:
         pos1 = pyautogui.locateCenterOnScreen("./resources/stages/" + lvl + "-sm.png", region=(settings['region']['left'], settings['region']['top'], settings['region']['width'], settings['region']['height']), confidence=0.9)
         pyautogui.click(x=pos1.x, y=pos1.y)
-        time.sleep(1)
+        time.sleep(0.5)
     if screen['data']['stage'] > stage:
         pos1 = pyautogui.locateCenterOnScreen("./resources/buttons/prev-btn.png", region=(settings['region']['left'], settings['region']['top'], settings['region']['width'], settings['region']['height']), confidence=0.9)
         pyautogui.click(x=pos1.x, y=pos1.y)
-        time.sleep(1)
+        time.sleep(0.5)
         return go_to_stage(stage=stage, lvl=lvl)
     elif screen['data']['stage'] < stage:
         pos1 = pyautogui.locateCenterOnScreen("./resources/buttons/next-btn.png", region=(settings['region']['left'], settings['region']['top'], settings['region']['width'], settings['region']['height']), confidence=0.9)
         pyautogui.click(x=pos1.x, y=pos1.y)
-        time.sleep(1)
+        time.sleep(0.5)
         return go_to_stage(stage=stage, lvl=lvl)
     else:
         return True
@@ -82,7 +82,6 @@ def start_farm(stage=3, lvl="normal"):
     pos1 = pyautogui.locateCenterOnScreen("./resources/buttons/battle-btn2.png", region=(settings['region']['left'], settings['region']['top'], settings['region']['width'], settings['region']['height']), confidence=0.9)
     pyautogui.click(x=pos1.x, y=pos1.y)
     while True:
-        time.sleep(2)
         screen = check_screen()
         if screen['name'] == 'victory':
             break
