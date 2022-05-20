@@ -6,23 +6,20 @@ from func.func import check_screen
 from config import settings
 
 config_stage = {
-    "3-normal": ["./resources/heroes/kim.png",
-                 "./resources/heroes/thuy.png",
+    "3-normal": ["./resources/heroes/kim460.png",
+                 "./resources/heroes/thuy460.png",
                  ],
-    "3-easy": ["./resources/heroes/hoa3.png",
-               "./resources/heroes/moc3.png",
-               "./resources/heroes/thuy3.png",
+    "3-easy": ["./resources/heroes/hoa340.png",
+               "./resources/heroes/moc340.png",
+               "./resources/heroes/thuy340.png",
                ],
-    "6-normal": ["./resources/heroes/tho5.png",
-                 "./resources/heroes/kim5.png",
-                 "./resources/heroes/thuy6.png",
-                 "./resources/heroes/thuy5.png",
+    "6-normal": ["./resources/heroes/tho585.png",
+                 "./resources/heroes/kim585.png",
+                 "./resources/heroes/thuy585.png",
+                 "./resources/heroes/thuy585.png",
+                 "./resources/heroes/thuy570.png",
+                 "./resources/heroes/moc564.png",
                  ],
-    "5-normal": [
-                 "./resources/heroes/moc5.png",
-                 "./resources/heroes/moc51.png",
-                 "./resources/heroes/moc52.png",
-                 ]
 }
 
 
