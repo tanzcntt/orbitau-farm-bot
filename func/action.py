@@ -20,6 +20,9 @@ config_stage = {
                  "./resources/heroes/thuy570.png",
                  "./resources/heroes/moc564.png",
                  ],
+    "6-normal": ["./resources/heroes/thuy570.png",
+                 "./resources/heroes/moc564.png",
+                 ],
 }
 
 
