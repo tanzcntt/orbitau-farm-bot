@@ -4,7 +4,6 @@ import pyautogui
 
 from func.func import check_screen
 from config import settings
-
 config_stage = {
     "1-easy": ["./resources/heroes/thuy115.png",
                "./resources/heroes/kim115.png",
@@ -75,43 +74,50 @@ def start_farm(stage=3, lvl="normal"):
         settings['region']['left'], settings['region']['top'], settings['region']['width'],
         settings['region']['height']),
                                           confidence=0.9)
-    pyautogui.click(pos1)
-    time.sleep(3)
+    pyautogui.moveTo(pos1)
+    time.sleep(1)
+    pyautogui.click()
+    time.sleep(2)
     go_to_stage(stage=stage, lvl=lvl)
     time.sleep(3)
     pos2 = pyautogui.locateCenterOnScreen("./resources/buttons/" + str(stage) + "-btn.png", region=(
         settings['region']['left'], settings['region']['top'], settings['region']['width'],
         settings['region']['height']),
                                           confidence=0.9)
-    pyautogui.click(pos2)
-    time.sleep(3)
+    pyautogui.moveTo(pos2)
+    time.sleep(1)
+    pyautogui.click()
+    time.sleep(2)
     pos3 = pyautogui.locateCenterOnScreen("./resources/buttons/battle-btn1.png", region=(
         settings['region']['left'], settings['region']['top'], settings['region']['width'],
         settings['region']['height']),
                                           confidence=0.9)
-    pyautogui.click(pos3)
-    time.sleep(3)
+    pyautogui.moveTo(pos3)
+    time.sleep(1)
+    pyautogui.click()
+    time.sleep(2)
     pos4 = pyautogui.locateCenterOnScreen("./resources/buttons/clear.png", region=(
         settings['region']['left'], settings['region']['top'], settings['region']['width'],
         settings['region']['height']),
                                           confidence=0.9)
-    pyautogui.click(pos4)
+    pyautogui.moveTo(pos4)
+    time.sleep(1)
+    pyautogui.click()
     time.sleep(2)
     pos5 = find_heroes(stage=stage, lvl=lvl)
     if not pos5:
         return False
-    print('heroes')
-    print(pos5)
-    pyautogui.click(pos5)
+    pyautogui.moveTo(pos5)
+    pyautogui.sleep(1)
+    pyautogui.click()
+    pyautogui.sleep(2)
     pos = pyautogui.locateCenterOnScreen("./resources/buttons/battle-btn2.png", region=(
         settings['region']['left'], settings['region']['top'], settings['region']['width'],
         settings['region']['height']),
                                           confidence=0.9)
-    print(pos)
-    time.sleep(3)
     pyautogui.moveTo(pos)
-    a = pyautogui.click()
-    print(a)
+    time.sleep(1)
+    pyautogui.click()
     time.sleep(3)
     while True:
         time.sleep(3)
@@ -124,7 +130,9 @@ def start_farm(stage=3, lvl="normal"):
         settings['region']['left'], settings['region']['top'], settings['region']['width'],
         settings['region']['height']),
                                           confidence=0.9)
-    pyautogui.click(pos6)
+    pyautogui.moveTo(pos6)
+    time.sleep(1)
+    pyautogui.click()
     time.sleep(2)
     return True
 

@@ -29,8 +29,10 @@ def run_bot(name):
                     pos1 = pyautogui.locateCenterOnScreen("./resources/buttons/x-btn.png", region=(
                         settings['region']['left'], settings['region']['top'], settings['region']['width'],
                         settings['region']['height']), confidence=0.9)
-                    pyautogui.click(pos1)
-                    time.sleep(1)
+                    pyautogui.moveTo(pos1)
+                    pyautogui.sleep(1)
+                    pyautogui.click()
+                    time.sleep(2)
                     break
             print(screen)
 
