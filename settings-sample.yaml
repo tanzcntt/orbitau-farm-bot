@@ -1,6 +1,49 @@
-password: 123456
-start_idle_x : 1766
-start_idle_y : 430
+account:
+  1:
+    username : 't111'
+    password: '1111'
+    configstage:
+      31normal:
+        - "./resources/heroes/kim460.png"
+        - "./resources/heroes/thuy460.png"
+      31easy:
+        - "./resources/heroes/hoa340.png"
+        - "./resources/heroes/tho340.png"
+        - "./resources/heroes/moc340.png"
+        - "./resources/heroes/thuy340.png"
+      61normal:
+        - "./resources/heroes/thuy570.png"
+        - "./resources/heroes/moc566.png"
+        - "./resources/heroes/moc585.png"
+        - "./resources/heroes/thuy585.png"
+      210hard:
+        - "./resources/heroes/tho585.png"
+        - "./resources/heroes/kim585.png"
+    config_idle:
+      - "./resources/heroes/idle-tho585.png"
+      - "./resources/heroes/idle-kim585.png"
+      - "./resources/heroes/idle-thuy585.png"
+      - "./resources/heroes/idle-moc585.png"
+  2:
+    username : '31'
+    password : '31'
+    configstage:
+      11easy:
+        - "./resources/heroes2/tho18.png"
+        - "./resources/heroes2/thuy225.png"
+        - "./resources/heroes2/tho215.png"
+      31easy:
+        - "./resources/heroes2/tho325.png"
+
+
+login:
+  userpos:
+    x : 1814
+    y : 410
+  passpos:
+    x : 1817
+    y : 481
+
 region :
   left : 1280
   top : 0
