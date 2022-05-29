@@ -39,6 +39,8 @@ def find_heroes(stage=3, sub_stage=1, lvl="normal", account=1):
     for x in config_stage[key]:
         try:
             confidence = 0.9
+            if lvl == 'hard':
+                confidence = 0.96
             pos = pyautogui.locateCenterOnScreen(x, region=(
                 settings['region']['left'], settings['region']['top'], settings['region']['width'],
                 settings['region']['height']), confidence=confidence)
