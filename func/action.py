@@ -34,7 +34,7 @@ def go_to_stage(stage=3, lvl="normal"):
 
 
 def find_heroes(stage=3, sub_stage=1, lvl="normal", account=1):
-    key = str(stage) + str(sub_stage) + lvl
+    key = str(stage) + "-" + str(sub_stage) + "-" + lvl
     config_stage = settings['account'][account]['configstage']
     for x in config_stage[key]:
         try:

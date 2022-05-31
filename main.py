@@ -14,11 +14,13 @@ def run_bot(name):
 
         # start_farm_account2()
         try:
-            start_farm_account3()
-            start_farm_account2()
-            start_farm_account1()
-        except Exception:
-            reload_and_login(account=1)
+            accounts = settings['farm']
+            print(accounts)
+            for account in accounts:
+                start_farm_account(account=account)
+
+        except Exception as e:
+            print(e.with_traceback())
         finally:
             pass
 
