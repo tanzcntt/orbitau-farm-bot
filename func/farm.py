@@ -15,6 +15,12 @@ def start_farm_account(account=1):
     reload_and_login(account=account)
     time.sleep(3)
     stages = settings['account'][account]['configstage']
+    try:
+        config_idle = settings['account'][account]['config_idle']
+        if config_idle:
+            end_idle_farm(account=account)
+    except:
+        pass
     print(stages.keys())
     for stage_full in stages.keys():
         tmp = stage_full.split('-')
@@ -32,5 +38,11 @@ def start_farm_account(account=1):
             print(screen)
             time.sleep(1)
 
+    try:
+        config_idle = settings['account'][account]['config_idle']
+        if config_idle:
+            start_idle_farm(account=account)
+    except:
+        pass
     print("Waiting next round")
     time.sleep(1)
