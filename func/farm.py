@@ -17,9 +17,10 @@ def start_farm_account(account=1):
     stages = settings['account'][account]['configstage']
     try:
         config_idle = settings['account'][account]['config_idle']
+        print(config_idle)
         if config_idle:
-            end_idle_farm(account=account)
-    except:
+            end_idle_farm()
+    except Exception as e:
         pass
     print(stages.keys())
     for stage_full in stages.keys():
