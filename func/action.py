@@ -39,7 +39,7 @@ def find_heroes(stage=3, sub_stage=1, lvl="normal", account=1):
     for x in config_stage[key]:
         try:
             confidence = 0.9
-            if lvl == 'hard':
+            if lvl == 'hard' and (x.find('moc') != -1 or x.find('thuy') != -1):
                 confidence = 0.96
             pos = pyautogui.locateCenterOnScreen(x, region=(
                 settings['region']['left'], settings['region']['top'], settings['region']['width'],
@@ -54,6 +54,7 @@ def find_heroes(stage=3, sub_stage=1, lvl="normal", account=1):
 
 
 def start_farm(stage=3, sub_stage=1, lvl="normal", account=1):
+    global pos_home_btn
     pos1 = pyautogui.locateCenterOnScreen("./resources/buttons/story-btn.png", region=(
         settings['region']['left'], settings['region']['top'], settings['region']['width'],
         settings['region']['height']),
@@ -74,33 +75,60 @@ def start_farm(stage=3, sub_stage=1, lvl="normal", account=1):
                                           confidence=0.9)
     pyautogui.click(x=pos1.x, y=pos1.y)
     time.sleep(1)
-    pos1 = pyautogui.locateCenterOnScreen("./resources/buttons/clear.png", region=(
-        settings['region']['left'], settings['region']['top'], settings['region']['width'],
-        settings['region']['height']),
-                                          confidence=0.9)
-    pyautogui.click(x=pos1.x, y=pos1.y)
-    pos1 = find_heroes(stage=stage, sub_stage=sub_stage, lvl=lvl, account=account)
-    if not pos1:
-        return False
-    pyautogui.click(x=pos1.x, y=pos1.y)
-    pos1 = pyautogui.locateCenterOnScreen("./resources/buttons/battle-btn2.png", region=(
-        settings['region']['left'], settings['region']['top'], settings['region']['width'],
-        settings['region']['height']),
-                                          confidence=0.9)
-    pyautogui.click(x=pos1.x, y=pos1.y)
-    while True:
-        pos_home_btn = pyautogui.locateCenterOnScreen("./resources/buttons/home-victory-btn.png", region=(
-            settings['region']['left'], settings['region']['top'], settings['region']['width'],
-            settings['region']['height']), confidence=0.9)
-        if pos_home_btn is not None:
-            break
-        pos_home_btn = pyautogui.locateCenterOnScreen("./resources/buttons/home-defeat-btn.png", region=(
-            settings['region']['left'], settings['region']['top'], settings['region']['width'],
-            settings['region']['height']), confidence=0.9)
-        if pos_home_btn is not None:
-            break
 
-    pyautogui.click(x=pos_home_btn.x, y=pos_home_btn.y)
+    while True:
+        pos1 = pyautogui.locateCenterOnScreen("./resources/buttons/clear.png", region=(
+            settings['region']['left'], settings['region']['top'], settings['region']['width'],
+            settings['region']['height']),
+                                              confidence=0.9)
+        pyautogui.click(x=pos1.x, y=pos1.y)
+        time.sleep(0.5)
+        pos1 = find_heroes(stage=stage, sub_stage=sub_stage, lvl=lvl, account=account)
+        if not pos1:
+            return False
+        pyautogui.click(x=pos1.x, y=pos1.y)
+        time.sleep(0.5)
+        pos1 = pyautogui.locateCenterOnScreen("./resources/buttons/battle-btn2.png", region=(
+            settings['region']['left'], settings['region']['top'], settings['region']['width'],
+            settings['region']['height']),
+                                              confidence=0.9)
+        pyautogui.click(x=pos1.x, y=pos1.y)
+        time.sleep(0.5)
+        while True:
+            pos_play_again = pyautogui.locateCenterOnScreen("./resources/buttons/playagain-btn.png", region=(
+                settings['region']['left'], settings['region']['top'], settings['region']['width'],
+                settings['region']['height']), confidence=0.9)
+            if pos_play_again is not None:
+                pyautogui.click(pos_play_again)
+                time.sleep(1)
+                break
+            pos_play_again = pyautogui.locateCenterOnScreen("./resources/buttons/playagain-btn2.png", region=(
+                settings['region']['left'], settings['region']['top'], settings['region']['width'],
+                settings['region']['height']), confidence=0.9)
+            if pos_play_again is not None:
+                pyautogui.click(pos_play_again)
+                time.sleep(1)
+                break
+
+            # pos_home_btn = pyautogui.locateCenterOnScreen("./resources/buttons/home-victory-btn.png", region=(
+            #     settings['region']['left'], settings['region']['top'], settings['region']['width'],
+            #     settings['region']['height']), confidence=0.9)
+            # if pos_home_btn is not None:
+            #     flag = 3
+            #     break
+            # pos_home_btn = pyautogui.locateCenterOnScreen("./resources/buttons/home-defeat-btn.png", region=(
+            #     settings['region']['left'], settings['region']['top'], settings['region']['width'],
+            #     settings['region']['height']), confidence=0.9)
+            # if pos_home_btn is not None:
+            #     flag = 3
+            #     break
+        # if flag == 3:
+        #     pyautogui.click(x=pos_home_btn.x, y=pos_home_btn.y)
+        #     break
+        # else:
+        #     continue
+
+
     return True
 
 
