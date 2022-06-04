@@ -2,6 +2,7 @@ import time
 
 import pyautogui
 
+from func.click import custom_click
 from func.func import check_screen
 from config import settings
 
@@ -13,20 +14,20 @@ def go_to_stage(stage=3, lvl="normal"):
         pos1 = pyautogui.locateCenterOnScreen("./resources/stages/" + lvl + "-sm.png", region=(
             settings['region']['left'], settings['region']['top'], settings['region']['width'],
             settings['region']['height']), confidence=0.9)
-        pyautogui.click(x=pos1.x, y=pos1.y)
+        custom_click(x=pos1.x, y=pos1.y)
         time.sleep(0.5)
     if screen['data']['stage'] > stage:
         pos1 = pyautogui.locateCenterOnScreen("./resources/buttons/prev-btn.png", region=(
             settings['region']['left'], settings['region']['top'], settings['region']['width'],
             settings['region']['height']), confidence=0.9)
-        pyautogui.click(x=pos1.x, y=pos1.y)
+        custom_click(x=pos1.x, y=pos1.y)
         time.sleep(0.5)
         return go_to_stage(stage=stage, lvl=lvl)
     elif screen['data']['stage'] < stage:
         pos1 = pyautogui.locateCenterOnScreen("./resources/buttons/next-btn.png", region=(
             settings['region']['left'], settings['region']['top'], settings['region']['width'],
             settings['region']['height']), confidence=0.9)
-        pyautogui.click(x=pos1.x, y=pos1.y)
+        custom_click(x=pos1.x, y=pos1.y)
         time.sleep(0.5)
         return go_to_stage(stage=stage, lvl=lvl)
     else:
@@ -59,7 +60,7 @@ def start_farm(stage=3, sub_stage=1, lvl="normal", account=1):
         settings['region']['left'], settings['region']['top'], settings['region']['width'],
         settings['region']['height']),
                                           confidence=0.9)
-    pyautogui.click(x=pos1.x, y=pos1.y)
+    custom_click(x=pos1.x, y=pos1.y)
     time.sleep(1)
     go_to_stage(stage=stage, lvl=lvl)
     time.sleep(1)
@@ -67,13 +68,13 @@ def start_farm(stage=3, sub_stage=1, lvl="normal", account=1):
         settings['region']['left'], settings['region']['top'], settings['region']['width'],
         settings['region']['height']),
                                           confidence=0.9)
-    pyautogui.click(x=pos1.x, y=pos1.y - 20)
+    custom_click(x=pos1.x, y=pos1.y - 20)
     time.sleep(1)
     pos1 = pyautogui.locateCenterOnScreen("./resources/buttons/battle-btn1.png", region=(
         settings['region']['left'], settings['region']['top'], settings['region']['width'],
         settings['region']['height']),
                                           confidence=0.9)
-    pyautogui.click(x=pos1.x, y=pos1.y)
+    custom_click(x=pos1.x, y=pos1.y)
     time.sleep(1)
 
     while True:
@@ -81,32 +82,32 @@ def start_farm(stage=3, sub_stage=1, lvl="normal", account=1):
             settings['region']['left'], settings['region']['top'], settings['region']['width'],
             settings['region']['height']),
                                               confidence=0.9)
-        pyautogui.click(x=pos1.x, y=pos1.y)
+        custom_click(x=pos1.x, y=pos1.y)
         time.sleep(0.5)
         pos1 = find_heroes(stage=stage, sub_stage=sub_stage, lvl=lvl, account=account)
         if not pos1:
             return False
-        pyautogui.click(x=pos1.x, y=pos1.y)
+        custom_click(x=pos1.x, y=pos1.y)
         time.sleep(0.5)
         pos1 = pyautogui.locateCenterOnScreen("./resources/buttons/battle-btn2.png", region=(
             settings['region']['left'], settings['region']['top'], settings['region']['width'],
             settings['region']['height']),
                                               confidence=0.9)
-        pyautogui.click(x=pos1.x, y=pos1.y)
+        custom_click(x=pos1.x, y=pos1.y)
         time.sleep(0.5)
         while True:
             pos_play_again = pyautogui.locateCenterOnScreen("./resources/buttons/playagain-btn.png", region=(
                 settings['region']['left'], settings['region']['top'], settings['region']['width'],
                 settings['region']['height']), confidence=0.9)
             if pos_play_again is not None:
-                pyautogui.click(pos_play_again)
+                custom_click(pos_play_again)
                 time.sleep(1)
                 break
             pos_play_again = pyautogui.locateCenterOnScreen("./resources/buttons/playagain-btn2.png", region=(
                 settings['region']['left'], settings['region']['top'], settings['region']['width'],
                 settings['region']['height']), confidence=0.9)
             if pos_play_again is not None:
-                pyautogui.click(pos_play_again)
+                custom_click(pos_play_again)
                 time.sleep(1)
                 break
 
@@ -123,7 +124,7 @@ def start_farm(stage=3, sub_stage=1, lvl="normal", account=1):
             #     flag = 3
             #     break
         # if flag == 3:
-        #     pyautogui.click(x=pos_home_btn.x, y=pos_home_btn.y)
+        #     custom_click(x=pos_home_btn.x, y=pos_home_btn.y)
         #     break
         # else:
         #     continue
@@ -138,20 +139,20 @@ def reload_and_login(account=1):
         settings['region']['left'], settings['region']['top'], settings['region']['width'],
         settings['region']['height']),
                                           confidence=0.9)
-    pyautogui.click(x=pos1.x, y=pos1.y)
+    custom_click(x=pos1.x, y=pos1.y)
     time.sleep(10)
 
-    pyautogui.click(x=settings['login']['userpos']['x'], y=settings['login']['userpos']['y'])
+    custom_click(x=settings['login']['userpos']['x'], y=settings['login']['userpos']['y'])
     pyautogui.write(settings['account'][account]['username'])
     time.sleep(1)
-    pyautogui.click(x=settings['login']['passpos']['x'], y=settings['login']['passpos']['y'])
+    custom_click(x=settings['login']['passpos']['x'], y=settings['login']['passpos']['y'])
     pyautogui.write(settings['account'][account]['password'])
     time.sleep(1)
     pos1 = pyautogui.locateCenterOnScreen("./resources/buttons/login-btn.png", region=(
         settings['region']['left'], settings['region']['top'], settings['region']['width'],
         settings['region']['height']),
                                           confidence=0.9)
-    pyautogui.click(x=pos1.x, y=pos1.y)
+    custom_click(x=pos1.x, y=pos1.y)
     while True:
         screen = check_screen()
         print(screen)
@@ -167,7 +168,7 @@ def start_idle_farm(account=1):
         settings['region']['left'], settings['region']['top'], settings['region']['width'],
         settings['region']['height']),
                                           confidence=0.9)
-    pyautogui.click(x=pos1.x, y=pos1.y)
+    custom_click(x=pos1.x, y=pos1.y)
     time.sleep(2)
 
     pos1 = pyautogui.locateCenterOnScreen("./resources/buttons/add-btn.png", region=(
@@ -176,7 +177,7 @@ def start_idle_farm(account=1):
                                           confidence=0.9)
     if pos1 is None:
         return False
-    pyautogui.click(x=pos1.x, y=pos1.y)
+    custom_click(x=pos1.x, y=pos1.y)
 
     heroes_count = 0
     list_pos = []
@@ -190,7 +191,7 @@ def start_idle_farm(account=1):
         if heroes_count >= 5:
             break
         pos = pyautogui.center(box)
-        pyautogui.click(x=pos.x, y=pos.y)
+        custom_click(x=pos.x, y=pos.y)
         time.sleep(1)
         heroes_count = heroes_count + 1
     if heroes_count < 5:
@@ -209,7 +210,7 @@ def start_idle_farm(account=1):
             if heroes_count >= 5:
                 break
             pos = pyautogui.center(box)
-            pyautogui.click(x=pos.x, y=pos.y)
+            custom_click(x=pos.x, y=pos.y)
             time.sleep(1)
             heroes_count = heroes_count + 1
         start_drag_x = (settings['region']['left'] + settings['region']['width'] / 2)
@@ -222,13 +223,13 @@ def start_idle_farm(account=1):
         settings['region']['left'], settings['region']['top'], settings['region']['width'],
         settings['region']['height']),
                                           confidence=0.9)
-    pyautogui.click(x=pos1.x, y=pos1.y)
+    custom_click(x=pos1.x, y=pos1.y)
 
     pos1 = pyautogui.locateCenterOnScreen("./resources/buttons/back-button.png", region=(
         settings['region']['left'], settings['region']['top'], settings['region']['width'],
         settings['region']['height']),
                                           confidence=0.9)
-    pyautogui.click(x=pos1.x, y=pos1.y)
+    custom_click(x=pos1.x, y=pos1.y)
     while True:
         time.sleep(1)
         screen = check_screen()
@@ -244,7 +245,7 @@ def end_idle_farm():
         settings['region']['left'], settings['region']['top'], settings['region']['width'],
         settings['region']['height']),
                                           confidence=0.9)
-    pyautogui.click(x=pos1.x, y=pos1.y)
+    custom_click(x=pos1.x, y=pos1.y)
     time.sleep(2)
     pos1 = pyautogui.locateCenterOnScreen("./resources/screens/idle.png", region=(
         settings['region']['left'], settings['region']['top'], settings['region']['width'],
@@ -258,18 +259,18 @@ def end_idle_farm():
         pos1 = pyautogui.locateCenterOnScreen("./resources/buttons/claim-btn.png", region=(
             settings['region']['left'], settings['region']['top'], settings['region']['width'],
             settings['region']['height']), confidence=0.9)
-        pyautogui.click(x=pos1.x, y=pos1.y)
+        custom_click(x=pos1.x, y=pos1.y)
         time.sleep(1)
         pos1 = pyautogui.locateCenterOnScreen("./resources/buttons/ok-btn.png", region=(
             settings['region']['left'], settings['region']['top'], settings['region']['width'],
             settings['region']['height']), confidence=0.9)
-        pyautogui.click(x=pos1.x, y=pos1.y)
+        custom_click(x=pos1.x, y=pos1.y)
     time.sleep(1)
     pos1 = pyautogui.locateCenterOnScreen("./resources/buttons/back-button.png", region=(
         settings['region']['left'], settings['region']['top'], settings['region']['width'],
         settings['region']['height']),
                                           confidence=0.9)
-    pyautogui.click(x=pos1.x, y=pos1.y)
+    custom_click(x=pos1.x, y=pos1.y)
     while True:
         screen = check_screen()
         print(screen)

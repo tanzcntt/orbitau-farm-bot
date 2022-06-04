@@ -9,6 +9,7 @@ import pyautogui
 from func.action import *
 from func.func import *
 from config import settings
+from func.click import custom_click
 
 
 def start_farm_account(account=1):
@@ -33,7 +34,7 @@ def start_farm_account(account=1):
                     pos1 = pyautogui.locateCenterOnScreen("./resources/buttons/x-btn.png", region=(
                         settings['region']['left'], settings['region']['top'], settings['region']['width'],
                         settings['region']['height']), confidence=0.9)
-                    pyautogui.click(x=pos1.x, y=pos1.y)
+                    custom_click(x=pos1.x, y=pos1.y)
                     time.sleep(1)
                     break
             print(screen)

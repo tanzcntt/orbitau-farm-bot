@@ -1,7 +1,6 @@
 import pyautogui
 from config import settings
 
-
 def check_screen():
     try:
         if pyautogui.locateOnScreen("./resources/screens/victory.png", region=(settings['region']['left'], settings['region']['top'], settings['region']['width'], settings['region']['height']), confidence=0.9):
