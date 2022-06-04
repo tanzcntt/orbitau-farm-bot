@@ -100,14 +100,14 @@ def start_farm(stage=3, sub_stage=1, lvl="normal", account=1):
                 settings['region']['left'], settings['region']['top'], settings['region']['width'],
                 settings['region']['height']), confidence=0.9)
             if pos_play_again is not None:
-                custom_click(pos_play_again)
+                custom_click(x=pos_play_again.x, y=pos_play_again.y)
                 time.sleep(1)
                 break
             pos_play_again = pyautogui.locateCenterOnScreen("./resources/buttons/playagain-btn2.png", region=(
                 settings['region']['left'], settings['region']['top'], settings['region']['width'],
                 settings['region']['height']), confidence=0.9)
             if pos_play_again is not None:
-                custom_click(pos_play_again)
+                custom_click(x=pos_play_again.x, y=pos_play_again.y)
                 time.sleep(1)
                 break
 
