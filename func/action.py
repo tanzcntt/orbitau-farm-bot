@@ -24,9 +24,7 @@ def go_to_stage(stage=3, lvl="normal"):
         time.sleep(0.5)
         return go_to_stage(stage=stage, lvl=lvl)
     elif screen['data']['stage'] < stage:
-        pos1 = pyautogui.locateCenterOnScreen("./resources/buttons/next-btn.png", region=(
-            settings['region']['left'], settings['region']['top'], settings['region']['width'],
-            settings['region']['height']), confidence=0.9)
+        pos1 = pyautogui.locateCenterOnScreen("./resources/buttons/next-btn.png", region=(settings['region']['left'], settings['region']['top'], settings['region']['width'], settings['region']['height']), confidence=0.9)
         custom_click(x=pos1.x, y=pos1.y)
         time.sleep(0.5)
         return go_to_stage(stage=stage, lvl=lvl)
