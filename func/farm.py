@@ -24,25 +24,28 @@ def start_farm_account(account=1):
     except Exception as e:
         pass
     print(stages.keys())
-    for stage_full in stages.keys():
-        tmp = stage_full.split('-')
-        total_not_home = 1
-        while True:
-            if total_not_home > 100:
-                raise Exception("Unknown error")
-            screen = check_screen()
-            if screen['name'] == 'home':
-                status = start_farm(stage=int(tmp[0]), sub_stage=int(tmp[1]), lvl=tmp[2], account=account)
-                if not status:
-                    pos1 = pyautogui.locateCenterOnScreen("./resources/buttons/x-btn.png", region=(
-                        settings['region']['left'], settings['region']['top'], settings['region']['width'],
-                        settings['region']['height']), confidence=0.9)
-                    custom_click(x=pos1.x, y=pos1.y)
-                    time.sleep(1)
-                    break
-            print(screen)
-            total_not_home = total_not_home + 1
-            time.sleep(1)
+    re_run = 0
+    while re_run < 1:
+        re_run = re_run + 1
+        for stage_full in stages.keys():
+            tmp = stage_full.split('-')
+            total_not_home = 1
+            while True:
+                if total_not_home > 100:
+                    raise Exception("Unknown error")
+                screen = check_screen()
+                if screen['name'] == 'home':
+                    status = start_farm(stage=int(tmp[0]), sub_stage=int(tmp[1]), lvl=tmp[2], account=account)
+                    if not status:
+                        pos1 = pyautogui.locateCenterOnScreen("./resources/buttons/x-btn.png", region=(
+                            settings['region']['left'], settings['region']['top'], settings['region']['width'],
+                            settings['region']['height']), confidence=0.9)
+                        custom_click(x=pos1.x, y=pos1.y)
+                        time.sleep(1)
+                        break
+                print(screen)
+                total_not_home = total_not_home + 1
+                time.sleep(1)
 
     try:
         config_idle = settings['account'][account]['config_idle']
