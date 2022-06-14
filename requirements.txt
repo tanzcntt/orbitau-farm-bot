@@ -2,3 +2,4 @@ pyautogui
 keyboard
 opencv-python
 pyyaml
+redis

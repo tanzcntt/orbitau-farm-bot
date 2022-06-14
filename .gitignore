@@ -129,3 +129,4 @@ dmypy.json
 .pyre/
 settings.yaml
 heroes/
+/heroes8/
