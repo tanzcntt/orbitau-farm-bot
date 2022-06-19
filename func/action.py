@@ -76,6 +76,7 @@ def start_farm(stage=3, sub_stage=1, lvl="normal", account=1):
     time.sleep(1)
 
     while True:
+        time.sleep(3)
         pos1 = pyautogui.locateCenterOnScreen("./resources/buttons/clear.png", region=(
             settings['region']['left'], settings['region']['top'], settings['region']['width'],
             settings['region']['height']),
@@ -93,7 +94,10 @@ def start_farm(stage=3, sub_stage=1, lvl="normal", account=1):
                                               confidence=0.9)
         custom_click(x=pos1.x, y=pos1.y)
         time.sleep(0.5)
+        total_not_end = 1
         while True:
+            if total_not_end > 300:
+                raise Exception("Unknown error")
             pos_play_again = pyautogui.locateCenterOnScreen("./resources/buttons/playagain-btn.png", region=(
                 settings['region']['left'], settings['region']['top'], settings['region']['width'],
                 settings['region']['height']), confidence=0.9)
@@ -108,27 +112,10 @@ def start_farm(stage=3, sub_stage=1, lvl="normal", account=1):
                 custom_click(x=pos_play_again.x, y=pos_play_again.y)
                 time.sleep(1)
                 break
-
-            # pos_home_btn = pyautogui.locateCenterOnScreen("./resources/buttons/home-victory-btn.png", region=(
-            #     settings['region']['left'], settings['region']['top'], settings['region']['width'],
-            #     settings['region']['height']), confidence=0.9)
-            # if pos_home_btn is not None:
-            #     flag = 3
-            #     break
-            # pos_home_btn = pyautogui.locateCenterOnScreen("./resources/buttons/home-defeat-btn.png", region=(
-            #     settings['region']['left'], settings['region']['top'], settings['region']['width'],
-            #     settings['region']['height']), confidence=0.9)
-            # if pos_home_btn is not None:
-            #     flag = 3
-            #     break
-        # if flag == 3:
-        #     custom_click(x=pos_home_btn.x, y=pos_home_btn.y)
-        #     break
-        # else:
-        #     continue
+            time.sleep(1)
+            total_not_end = total_not_end + 1
 
 
-    return True
 
 
 def reload_and_login(account=1):

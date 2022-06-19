@@ -26,7 +26,10 @@ def start_farm_account(account=1):
     print(stages.keys())
     for stage_full in stages.keys():
         tmp = stage_full.split('-')
+        total_not_home = 1
         while True:
+            if total_not_home > 100:
+                raise Exception("Unknown error")
             screen = check_screen()
             if screen['name'] == 'home':
                 status = start_farm(stage=int(tmp[0]), sub_stage=int(tmp[1]), lvl=tmp[2], account=account)
@@ -39,6 +42,7 @@ def start_farm_account(account=1):
                     break
             print(screen)
             time.sleep(1)
+            total_not_home = total_not_home + 1
 
     try:
         config_idle = settings['account'][account]['config_idle']
