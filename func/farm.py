@@ -39,6 +39,11 @@ def start_farm_account(account=1):
                         settings['region']['height']), confidence=0.9)
                     custom_click(x=pos1.x, y=pos1.y)
                     time.sleep(1)
+                    pos1 = pyautogui.locateCenterOnScreen("./resources/buttons/back-button.png", region=(
+                        settings['region']['left'], settings['region']['top'], settings['region']['width'],
+                        settings['region']['height']), confidence=0.9)
+                    custom_click(x=pos1.x, y=pos1.y)
+                    time.sleep(1)
                     break
             print(screen)
             time.sleep(1)
