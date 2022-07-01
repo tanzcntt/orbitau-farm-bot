@@ -106,10 +106,7 @@ def start_farm(stage=3, sub_stage=1, lvl="normal", account=1):
 
 def reload_and_login(account=1):
     print("Start login")
-    pos1 = pyautogui.locateCenterOnScreen("./resources/buttons/reload-btn.png", region=(
-        settings['region']['left'], settings['region']['top'], settings['region']['width'],
-        settings['region']['height']),
-                                          confidence=0.9)
+    pos1 = pyautogui.locateCenterOnScreen("./resources/buttons/reload-btn.png", region=(settings['region']['left'], settings['region']['top'], settings['region']['width'], settings['region']['height']), confidence=0.9)
     pyautogui.click(x=pos1.x, y=pos1.y)
     time.sleep(10)
 

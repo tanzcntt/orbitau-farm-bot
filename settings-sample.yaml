@@ -23,38 +23,28 @@ account:
         - "./resources/heroes/kim585.png"
       3-1-hard:
         - "./resources/heroes/moc585.png"
-      config_idle:
-        - "./resources/heroes/idle-tho585.png"
-        - "./resources/heroes/idle-kim585.png"
-        - "./resources/heroes/idle-thuy585.png"
-        - "./resources/heroes/idle-moc585.png"
   2:
     username : '31'
     password : '31'
     configstage:
-      configstage:
-        3-1-normal:
-          - "./resources/heroes/kim460.png"
-          - "./resources/heroes/thuy460.png"
-        3-1-easy:
-          - "./resources/heroes/hoa340.png"
-          - "./resources/heroes/tho340.png"
-          - "./resources/heroes/moc340.png"
-          - "./resources/heroes/thuy340.png"
-        6-1-normal:
-          - "./resources/heroes/thuy570.png"
-          - "./resources/heroes/moc566.png"
-        2-10-hard:
-          - "./resources/heroes/tho585.png"
-          - "./resources/heroes/thuy585.png"
-          - "./resources/heroes/kim585.png"
-        3-1-hard:
-          - "./resources/heroes/moc585.png"
-        config_idle:
-          - "./resources/heroes/idle-tho585.png"
-          - "./resources/heroes/idle-kim585.png"
-          - "./resources/heroes/idle-thuy585.png"
-          - "./resources/heroes/idle-moc585.png"
+      3-1-normal:
+        - "./resources/heroes/kim460.png"
+        - "./resources/heroes/thuy460.png"
+      3-1-easy:
+        - "./resources/heroes/hoa340.png"
+        - "./resources/heroes/tho340.png"
+        - "./resources/heroes/moc340.png"
+        - "./resources/heroes/thuy340.png"
+      6-1-normal:
+        - "./resources/heroes/thuy570.png"
+        - "./resources/heroes/moc566.png"
+      2-10-hard:
+        - "./resources/heroes/tho585.png"
+        - "./resources/heroes/thuy585.png"
+        - "./resources/heroes/kim585.png"
+      3-1-hard:
+        - "./resources/heroes/moc585.png"
+        
 
 
 login:

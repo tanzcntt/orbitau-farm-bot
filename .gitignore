@@ -128,3 +128,6 @@ dmypy.json
 # Pyre type checker
 .pyre/
 settings.yaml
+heroes
+.DS_Store
+.vscode/
