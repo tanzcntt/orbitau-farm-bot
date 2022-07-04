@@ -138,11 +138,16 @@ def reload_and_login(account=1):
         settings['region']['height']),
                                           confidence=0.9)
     custom_click(x=pos1.x, y=pos1.y)
+    total_not_end = 1
     while True:
         screen = check_screen()
         print(screen)
+        time.sleep(1)
+        if total_not_end > 100:
+            raise Exception("Unknown error")
         if screen['name'] == 'home':
             break
+        total_not_end = total_not_end + 1
     print("Login success")
     return True
 
