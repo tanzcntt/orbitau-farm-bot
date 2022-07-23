@@ -98,6 +98,13 @@ def start_farm(stage=3, sub_stage=1, lvl="normal", account=1):
         while True:
             if total_not_end > 300:
                 raise Exception("Unknown error")
+            pos_skip = pyautogui.locateCenterOnScreen("./resources/buttons/skip-btn.png", region=(
+                settings['region']['left'], settings['region']['top'],
+                settings['region']['width'],
+                settings['region']['height']), confidence=0.9)
+            if pos_skip is not None:
+                custom_click(x=pos_skip.x, y=pos_skip.y)
+                time.sleep(1)
             pos_play_again = pyautogui.locateCenterOnScreen("./resources/buttons/playagain-btn.png", region=(
                 settings['region']['left'], settings['region']['top'], settings['region']['width'],
                 settings['region']['height']), confidence=0.9)
