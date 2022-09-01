@@ -39,6 +39,12 @@ def start_farm_account(screen, account=1):
                             settings[screen]['region']['height']), confidence=0.9)
                         custom_click(x=pos1.x, y=pos1.y)
                         time.sleep(1)
+                        pos1 = pyautogui.locateCenterOnScreen("./resources/buttons/back-button.png", region=(
+                            settings[screen]['region']['left'], settings[screen]['region']['top'],
+                            settings[screen]['region']['width'],
+                            settings[screen]['region']['height']), confidence=0.9)
+                        custom_click(x=pos1.x, y=pos1.y)
+                        time.sleep(1)
                         break
                 print(screenx)
                 total_not_home = total_not_home + 1

@@ -68,7 +68,11 @@ def start_farm(screen, stage=3, sub_stage=1, lvl="normal", account=1):
         settings[screen]['region']['left'], settings[screen]['region']['top'], settings[screen]['region']['width'],
         settings[screen]['region']['height']),
                                           confidence=0.9)
-    custom_click(x=pos1.x, y=pos1.y - 20)
+    if stage == 6:
+        custom_click(x=pos1.x, y=pos1.y - 50)
+    else:
+        custom_click(x=pos1.x, y=pos1.y - 20)
+
     time.sleep(1)
     pos1 = pyautogui.locateCenterOnScreen("./resources/buttons/battle-btn1.png", region=(
         settings[screen]['region']['left'], settings[screen]['region']['top'], settings[screen]['region']['width'],
@@ -78,17 +82,18 @@ def start_farm(screen, stage=3, sub_stage=1, lvl="normal", account=1):
     time.sleep(1)
 
     while True:
+        time.sleep(1)
         pos1 = pyautogui.locateCenterOnScreen("./resources/buttons/clear.png", region=(
             settings[screen]['region']['left'], settings[screen]['region']['top'], settings[screen]['region']['width'],
             settings[screen]['region']['height']),
                                               confidence=0.9)
         custom_click(x=pos1.x, y=pos1.y)
-        time.sleep(0.5)
+        time.sleep(1)
         pos1 = find_heroes(screen, stage=stage, sub_stage=sub_stage, lvl=lvl, account=account)
         if not pos1:
             return False
         custom_click(x=pos1.x, y=pos1.y)
-        time.sleep(0.5)
+        time.sleep(1)
         pos1 = pyautogui.locateCenterOnScreen("./resources/buttons/battle-btn2.png", region=(
             settings[screen]['region']['left'], settings[screen]['region']['top'], settings[screen]['region']['width'],
             settings[screen]['region']['height']),
@@ -135,6 +140,10 @@ def reload_and_login(screen, account=1):
 
     custom_click(x=settings[screen]['login']['userpos']['x'], y=settings[screen]['login']['userpos']['y'])
     time.sleep(1)
+    for x in range(40):
+        pyautogui.press('backspace')
+        pyautogui.press('delete')
+    time.sleep(1)
     pyautogui.write(settings[screen]['account'][account]['username'])
     time.sleep(1)
     custom_click(x=settings[screen]['login']['passpos']['x'], y=settings[screen]['login']['passpos']['y'])
@@ -148,6 +157,7 @@ def reload_and_login(screen, account=1):
     while True:
         screenx = check_screen(screen)
         print(screenx)
+        time.sleep(1)
         if screenx['name'] == 'home':
             break
     print("Login success")

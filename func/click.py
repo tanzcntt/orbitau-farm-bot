@@ -15,7 +15,7 @@ def custom_click(x, y):
         r.set("isClick", 1)
         if system_name == "Linux":
             pyautogui.click(x=x, y=y)
-            r.set("isClick", 0)
+            #r.set("isClick", 0)
             return True
         if system_name == "Window":
             pyautogui.moveTo(x=x, y=y)
