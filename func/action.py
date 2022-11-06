@@ -14,7 +14,7 @@ def go_to_stage(screen, stage=3, lvl="normal"):
     if screenx['data']['lvl'] != lvl:
         pos1 = pyautogui.locateCenterOnScreen("./resources/stages/" + lvl + "-sm.png", region=(
             settings[screen]['region']['left'], settings[screen]['region']['top'], settings[screen]['region']['width'],
-            settings[screen]['region']['height']), confidence=0.9)
+            settings[screen]['region']['height']), confidence=0.85)
         custom_click(x=pos1.x, y=pos1.y)
         time.sleep(0.5)
     if screenx['data']['stage'] > stage:

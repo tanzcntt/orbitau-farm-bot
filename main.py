@@ -8,11 +8,6 @@ import os
 import sys
 
 from func.farm import *
-import redis
-
-r = redis.Redis(decode_responses=True)
-r.set("isClick", 0)
-
 
 def run_bot(screen='screen1'):
     # start_idle_farm()
